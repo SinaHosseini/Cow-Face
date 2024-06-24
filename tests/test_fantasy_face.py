@@ -3,7 +3,9 @@ import cv2
 import os
 import sys
 import unittest
+import numpy as np
 
+# Add the path to the fantasy_face module
 sys.path.append(os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', 'fantasy_face')))
 
@@ -15,6 +17,7 @@ class TestFantasyFace(unittest.TestCase):
         self.image_path = os.path.abspath(os.path.join(
             os.path.dirname(__file__), '..', 'input', 'test_image.jpg'))
 
+        # Create a simple test image
         self.test_image = 255 * np.ones((640, 640, 3), dtype=np.uint8)
         cv2.imwrite(self.image_path, self.test_image)
 
@@ -22,6 +25,7 @@ class TestFantasyFace(unittest.TestCase):
         image_cow = cv2.imread(self.cow_path)
         my_image = cv2.imread(self.image_path)
 
+        # Ensure images are read correctly
         self.assertIsNotNone(image_cow, "Cow image not found!")
         self.assertIsNotNone(my_image, "Test image not found!")
 
@@ -35,10 +39,12 @@ class TestFantasyFace(unittest.TestCase):
             os.path.dirname(__file__), '..', 'output', 'animal_face.jpg'))
         cv2.imwrite(output_path, convert_image)
 
+        # Check if output file exists
         self.assertTrue(os.path.exists(output_path),
                         "Output image not created!")
 
     def tearDown(self):
+        # Clean up test images
         if os.path.exists(self.image_path):
             os.remove(self.image_path)
         output_path = os.path.abspath(os.path.join(
