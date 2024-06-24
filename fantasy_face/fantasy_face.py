@@ -31,21 +31,21 @@ def transparent_sticker(sticker):
 def main():
     parser = argparse.ArgumentParser(description='Process some images.')
     parser.add_argument('--image_path', type=str,
-                        required=True, help='Path to the Sina image')
+                        required=True, help='Path to the User image')
     args = parser.parse_args()
 
     cow_image_path = "input/cow.jpg"
-    sina_image_path = args.image_path
+    user_image_path = args.image_path
 
     image_cow = cv2.imread(cow_image_path)
-    my_image = cv2.imread(sina_image_path)
+    my_image = cv2.imread(user_image_path)
 
     if image_cow is None:
         print(f"Failed to load cow image from {cow_image_path}")
         exit()
 
     if my_image is None:
-        print(f"Failed to load Sina image from {sina_image_path}")
+        print(f"Failed to load User image from {user_image_path}")
         exit()
 
     image_cow = cv2.resize(image_cow, (640, 640))
