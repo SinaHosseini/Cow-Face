@@ -6,8 +6,7 @@ import unittest
 import numpy as np
 
 # Add the path to the fantasy_face module
-sys.path.append(os.path.abspath(os.path.join(
-    os.path.dirname(__file__), '..', 'fantasy_face')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 class TestFantasyFace(unittest.TestCase):
@@ -16,6 +15,13 @@ class TestFantasyFace(unittest.TestCase):
             os.path.dirname(__file__), '..', 'input', 'cow.jpg'))
         self.image_path = os.path.abspath(os.path.join(
             os.path.dirname(__file__), '..', 'input', 'test_image.jpg'))
+        self.output_path = os.path.abspath(os.path.join(
+            os.path.dirname(__file__), '..', 'output', 'animal_face.jpg'))
+
+        # Create the output directory if it doesn't exist
+        output_dir = os.path.dirname(self.output_path)
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
 
         # Create a simple test image
         self.test_image = 255 * np.ones((640, 640, 3), dtype=np.uint8)
@@ -35,22 +41,18 @@ class TestFantasyFace(unittest.TestCase):
         image_cow_ghost, image_cow_transparent = transparent_sticker(image_cow)
         convert_image = my_image * image_cow_ghost + image_cow_transparent
 
-        output_path = os.path.abspath(os.path.join(
-            os.path.dirname(__file__), '..', 'output', 'animal_face.jpg'))
-        cv2.imwrite(output_path, convert_image)
+        cv2.imwrite(self.output_path, convert_image)
 
         # Check if output file exists
-        self.assertTrue(os.path.exists(output_path),
+        self.assertTrue(os.path.exists(self.output_path),
                         "Output image not created!")
 
     def tearDown(self):
         # Clean up test images
         if os.path.exists(self.image_path):
             os.remove(self.image_path)
-        output_path = os.path.abspath(os.path.join(
-            os.path.dirname(__file__), '..', 'output', 'animal_face.jpg'))
-        if os.path.exists(output_path):
-            os.remove(output_path)
+        if os.path.exists(self.output_path):
+            os.remove(self.output_path)
 
 
 if __name__ == '__main__':
