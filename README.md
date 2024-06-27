@@ -1,23 +1,23 @@
-# Fantasy Face
+# Cow Face
 
 Add an animal mask to the face using OpenCV and Python.
 
 ## Description
 
-`Fantasy Face` is a Python package that allows you to overlay an animal mask onto a face in an image. It uses OpenCV for image processing.
+`Cow Face` is a Python package that allows you to overlay an animal mask onto a face in an image. It uses OpenCV for image processing.
 
 ## Installation
 
 To install the package, you can use the following command:
 
 ```bash
-pip install git+pip install git+https://github.com/SinaHosseini/Fantasy-Face
+pip install git+pip install git+https://github.com/SinaHosseini/Cow-Face
 ```
 
 or
 
 ```bash
-pip install fantasy-face
+pip install cow-face
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ pip install fantasy-face
 Here's an example of how to use the package:
 
 ```python
-import fantasy_face
+import cow_face
 import cv2
 
 # Define the paths to the images
@@ -41,7 +41,7 @@ my_image = cv2.resize(my_image, [640, 640])
 image_cow = cv2.resize(image_cow, [640, 640])
 
 # Apply the mask
-image_cow_ghost, image_cow_transparent = fantasy_face.transparent_sticker(image_cow)
+image_cow_ghost, image_cow_transparent = cow_face.transparent_sticker(image_cow)
 convert_image = my_image * image_cow_ghost + image_cow_transparent
 
 # Save the result
@@ -51,7 +51,7 @@ cv2.imwrite("output/animal_face.jpg", convert_image)
 You can also run the script directly from the command line:
 
 ```bash
-python fantasy_face.py --image_path path/to/your/image.jpg
+python cow_face.py --image_path path/to/your/image.jpg
 ```
 
 ## Requirements
