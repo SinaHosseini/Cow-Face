@@ -1,6 +1,6 @@
 # Cow Face
 
-Add an cow mask to the face using OpenCV and Python.
+Add a cow mask to the face using OpenCV and Python.
 
 ## Description
 
