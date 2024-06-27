@@ -12,7 +12,7 @@ setup(
     version="1.0.2",
     author="Sina Hosseini",
     author_email="sshosseinivaez@gmail.com",
-    description="Add an animal mask to the face",
+    description="Add an cow mask to the face",
     long_description=readme(),
     long_description_content_type="text/markdown",
     url="https://github.com/SinaHosseini/Cow-Face",
