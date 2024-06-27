@@ -9,7 +9,7 @@ def readme():
 
 setup(
     name="cow_face",
-    version="1.0.2",
+    version="1.0.1",
     author="Sina Hosseini",
     author_email="sshosseinivaez@gmail.com",
     description="Add a cow mask to the face",
