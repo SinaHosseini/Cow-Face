@@ -1,8 +1,0 @@
-README.md
-setup.py
-fantasy_face/__init__.py
-fantasy_face/fantasy_face.py
-fantasy_face.egg-info/PKG-INFO
-fantasy_face.egg-info/SOURCES.txt
-fantasy_face.egg-info/dependency_links.txt
-fantasy_face.egg-info/top_level.txt
